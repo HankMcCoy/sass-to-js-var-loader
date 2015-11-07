@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/hankmccoy/sass-to-js-var-loader/issues"
   },
-  "homepage": "https://github.com/hankmccoy/sass-to-js-var-loader#readme"
+  "homepage": "https://github.com/hankmccoy/sass-to-js-var-loader#readme",
+  "dependencies": {
+    "node-sass": "^3.4.1"
+  }
 }
