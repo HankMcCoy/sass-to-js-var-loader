@@ -1,6 +1,6 @@
 {
   "name": "sass-to-js-var-loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This webpack loader will convert a SASS file into a JS map of all of its variables.",
   "main": "index.js",
   "scripts": {
