@@ -39,7 +39,7 @@ module.exports = function (source) {
 }
 
 function getAllVariableNames(source) {
-	var variableNameRegExp = /\$([\w\-]+)/g
+	var variableNameRegExp = /^\$([\w\-]+)/gm
 	return getAllMatches(variableNameRegExp, source)
 		.map(function (x) { return x[0] })
 }
@@ -59,6 +59,6 @@ function camelize(text) {
 	var result = text.replace(sectionStartRegExp, function (letter, index) {
 		return letter.toUpperCase().replace('-', '')
 	})
-	
+
 	return result[0].toLowerCase().concat(result.slice(1))
 }
