@@ -1,5 +1,5 @@
 {
-  "name": "sass-to-js-var-loader",
+  "name": "@buildingconnected/sass-to-js-var-loader",
   "version": "1.0.1",
   "description": "This webpack loader will convert a SASS file into a JS map of all of its variables.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hankmccoy/sass-to-js-var-loader.git"
+    "url": "git+https://github.com/buildingconnected/sass-to-js-var-loader.git"
   },
   "keywords": [
     "sass",
@@ -18,9 +18,9 @@
   "author": "Thomas Beirne",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hankmccoy/sass-to-js-var-loader/issues"
+    "url": "https://github.com/buildingconnected/sass-to-js-var-loader/issues"
   },
-  "homepage": "https://github.com/hankmccoy/sass-to-js-var-loader#readme",
+  "homepage": "https://github.com/buildingconnected/sass-to-js-var-loader#readme",
   "peerDependencies": {
     "node-sass": ">=3.4.1"
   }
