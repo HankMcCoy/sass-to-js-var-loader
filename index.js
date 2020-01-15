@@ -39,16 +39,25 @@ module.exports = function (source) {
 }
 
 function getAllVariableNames(source) {
-	var variableNameRegExp = /\$([\w\-]+)/g
+	// ignore commented lines: // `$variable`
+	// ignore @ methods: `@each $name in $colors {}`
+	// ignore interpolation `#{$name}`
+	// third capture group allows us to filter out methods such as `$var: map-merge()` in `getAllMatches()`
+	// regex demo: https://regex101.com/r/q4uzfo/2
+	var variableNameRegExp = /^(?:(?!\/\/)(?!#{)(?!@).)*(\$([\w\-]+)):[\s*\w-]*(\()?/gm
 	return getAllMatches(variableNameRegExp, source)
-		.map(function (x) { return x[0] })
+		.map(function (match) {
+			// return the first match group, ex: `$variable-name`
+			return match[1]
+		})
 }
 
 function getAllMatches(regexp, text) {
 	var allMatches = []
 	var result
 	while ((result = regexp.exec(text)) !== null) {
-		allMatches.push(result.slice(1))
+		// filter out sass functions like `$var: map-merge((...))`
+		if (result[3] !== '(') allMatches.push(result.slice(1))
 	}
 
 	return allMatches
@@ -59,6 +68,6 @@ function camelize(text) {
 	var result = text.replace(sectionStartRegExp, function (letter, index) {
 		return letter.toUpperCase().replace('-', '')
 	})
-	
+
 	return result[0].toLowerCase().concat(result.slice(1))
 }
