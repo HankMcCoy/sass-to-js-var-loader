@@ -1,4 +1,4 @@
-var sass = require('node-sass')
+var sass = require('sass')
 
 module.exports = function (source) {
 	// Get all variable names and camelCase them.
@@ -59,6 +59,6 @@ function camelize(text) {
 	var result = text.replace(sectionStartRegExp, function (letter, index) {
 		return letter.toUpperCase().replace('-', '')
 	})
-	
+
 	return result[0].toLowerCase().concat(result.slice(1))
 }
